@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ActivityIndicator, FlatList, TouchableOpacity, 
 import { global } from '../config/global';
 
 import SearchForm from '../components/SearchForm';
+import ShowsNavigator from '../navigators/Shows';
 
 export default function ShowsScreen({ navigation }) {
 
@@ -13,7 +14,7 @@ export default function ShowsScreen({ navigation }) {
 
         console.log("Make a call to the API using the search query: " + searchQuery);
 
-        fetch('http://api.tvmaze.com/' + searchQuery )
+        fetch('http://api.tvmaze.com/' + searchQuery)
 
 
             // ('https://api.unsplash.com/search/photos?client_id='+global.unsplashAccessKey+'&query='+searchQuery)
@@ -80,13 +81,23 @@ export default function ShowsScreen({ navigation }) {
                     <FlatList
                         data={shows}
                         renderItem={({ item }) => (
-                            <Image
-                                style={styles.resultImage}
-                                source={{ uri: item.image.medium }}
-                            />
+                            <TouchableOpacity
+                                style={styles.resultImageTouchable}
+                                onPress={() => {
+                                    navigation.navigate("ShowsNavigator", { 
+                                        screen: 'ShowDetails',
+                                        params:  {showId: item.id},
+                                    });
+                                }}
+                            >
+                                <Image
+                                    style={styles.resultImage}
+                                    source={{ uri: item.image.medium }}
+                                />
+                            </TouchableOpacity>
                         )}
                         numColumns="2"
-                        style={{margin: 10}}
+                        style={{ margin: 10 }}
                     />
                 </View>
             ) : (

@@ -76,6 +76,7 @@ export default function ShowsScreen({ navigation }) {
 
     return (
         <View style={styles.ShowsScreen}>
+            <SearchForm setSearchQuery={setSearchQuery}/>
             {shows ? (
                 <View style={styles.resultsContainer} >
                     <FlatList
@@ -84,7 +85,7 @@ export default function ShowsScreen({ navigation }) {
                             <TouchableOpacity
                                 style={styles.resultImageTouchable}
                                 onPress={() => {
-                                    navigation.navigate("ShowsNavigator", { 
+                                    navigation.navigate("ShowDetails", { 
                                         screen: 'ShowDetails',
                                         params:  {showId: item.id},
                                     });

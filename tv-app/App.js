@@ -16,8 +16,8 @@ export default function App() {
   const Drawer = createDrawerNavigator();
   return (
     <NavigationContainer styles={styles.container}>
-      <ShowsNavigator name="ShowsNavigator" component={ShowsNavigator}
-      />
+      {/* <ShowsNavigator name="ShowsNavigator" component={ShowsNavigator }
+      /> */}
       <Drawer.Navigator>
         <Drawer.Screen name='Home' component={HomeScreen} options={{ title: 'ShowSpace' }} />
         <Drawer.Screen name='Shows' component={ShowsScreen} options={{ title: 'Shows' }} />

@@ -4,6 +4,7 @@ import { global } from '../config/global';
 
 import SearchForm from '../components/SearchForm';
 import ShowsNavigator from '../navigators/Shows';
+import ShowDetailsScreen from './ShowDetails';
 
 export default function ShowsScreen({ navigation }) {
 

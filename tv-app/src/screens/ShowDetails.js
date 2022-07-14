@@ -1,5 +1,7 @@
 import React, { useState,  useEffect } from 'react';
-import { StyleSheet, Text, View, ActivityIndicator, ImageComponent, Linking } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, ImageComponent, Linking, Image } from 'react-native';
+
+import ShowsScreen from './Shows';
 
 export default function ShowDetailsScreen({ route, navigation }) {
     const { showId } = route.params;
@@ -9,8 +11,7 @@ export default function ShowDetailsScreen({ route, navigation }) {
  
     const getShowData = () => {
         fetch('https://api.tvmaze.com/search/shows?page=1' + showId ) // change to get the show id endpoint - activity 23
-            // fetch('https://api.unsplash.com/search/photos?client_id=57dQ8K_i_KP1ZB6wVnlt97q0n75VNZP8JYUJM0Y3oCE&query='+searchQuery)
-            //    fetch('https://api.tvmaze.com/search/shows?q=c    ommunity')
+        // fetch('https://api.tvmaze.com/search/shows?q=community') // change to get the show id endpoint - activity 23
             .then((response) => response.json())
             .then((json) => {
                 setShowData(json);

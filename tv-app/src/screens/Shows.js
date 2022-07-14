@@ -88,7 +88,7 @@ export default function ShowsScreen({ navigation }) {
                                 onPress={() => {
                                     navigation.navigate("ShowDetails", { 
                                         screen: 'ShowDetails',
-                                        params:  {showId: item.id},
+                                        params:  {showId: item.externals.imdb},
                                     });
                                 }}
                             >
